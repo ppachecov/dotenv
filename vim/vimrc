@@ -1,0 +1,232 @@
+" Vim config
+set nocompatible
+
+" File Types
+filetype on
+filetype plugin on 
+
+" LEADER
+let mapleader=" "
+
+" Reload .vimrc
+map <leader>s :source ~/.vimrc<CR>
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin() 
+
+Plugin 'VundleVim/Vundle.vim'
+
+" GitHub
+Plugin 'tpope/vim-fugitive'
+
+" Autocompletado de [], ()
+Plugin 'tpope/vim-surround'
+
+" Controp
+Plugin 'ctrlpvim/ctrlp.vim' 
+
+" Data 
+Plugin 'tpope/vim-dispatch'
+
+"YouCompleteME 
+Plugin 'valloric/youcompleteme'
+
+"SUperTab
+Plugin 'ervandew/supertab'
+
+" NEERD Tree
+Plugin 'scrooloose/nerdtree'
+
+" NERD Commenter 
+Plugin 'scrooloose/nerdcommenter'
+
+" Vim-Arline -- la barra de estado 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Syntastic  
+Plugin  'scrooloose/syntastic'
+
+" Solarized theme 
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
+
+" OmniSharp 
+Plugin 'OmniSharp/omnisharp-vim'
+
+call vundle#end() 
+filetype plugin indent on 
+
+" Habilitamos Smarter Tab Line
+let g:airline#extensions#tabline#eanbled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts=1
+let g:airline_theme='tomorrow'
+
+
+" Configuramos syntastic 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+
+" NEERdTree
+let NERDTreeMapActivateNode='<right>'
+let NERDTreeShowHidden=0
+nmap <leader>, :NERDTreeToggle<CR>
+nmap <leader>j :NERDTreeFind<CR>
+nmap <leader>. :NERDTreeFocus<CR>
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" VIM 
+" Buffers
+set autoread
+set autowrite 
+set backspace=indent,eol,start
+set bufhidden=delete 
+set switchbuf=split,usetab
+
+" Directorios 
+set noautochdir
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
+
+" Text Formatting
+filetype indent on
+set nowrap 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set autoindent 
+
+" Themes
+set t_Co=256
+set lines=45 columns=140
+set colorcolumn=90
+set number
+set cursorline
+syntax enable
+set background=dark
+colorscheme gruvbox
+set ruler 
+set showcmd
+set showmatch
+
+" Para autocomplete
+filetype plugin on
+
+" Sytastic
+" Automatically populate loc list, enables navigation ]l, [l (vim-unimpaired)
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+"let g:syntastic_cs_checkers = ['code_checker']
+let g:syntastic_cpp_checkers=['clang_tidy']
+let g:syntastic_cpp_clang_check_post_args = ""
+let g:syntastic_cpp_clang_tidy_post_args = ""
+
+" Fu-git-ive-ness 
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>ga :Gwrite<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>g2 :diffget //2<cr>
+nmap <leader>g3 :diffget //3<cr>
+nmap <leader>g0 :Gwrite!<cr>
+
+"NERD Commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" OmniSharp
+" omnisharp
+if !has("python")
+  let g:OmniSharp_loaded = 1 " don't load omnisharp without python
+endif
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_timeout = 1
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
+set completeopt=longest,menuone,preview
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+
+    " Synchronous build (blocks Vim)
+    "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
+    " Builds can also run asynchronously with vim-dispatch installed
+    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+    " automatic syntax check on events (TextChanged requires Vim 7.4)
+    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+
+    "The following commands are contextual, based on the current cursor position.
+
+    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+    "finds members in the current buffer
+    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
+    " cursor can be anywhere on the line containing an issue
+    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
+    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
+    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
+    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+    "navigate up by method/property/field
+    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+    "navigate down by method/property/field
+    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+
+augroup END
+" this setting controls how long to wait (in ms) before fetching type / symbol information.
+set updatetime=500
+" Remove 'Press Enter to continue' message when type information is longer than one line.
+set cmdheight=2
+" Enable snippet completion, requires completeopt-=preview
+" would need to instal ultisnips, which could conflict with other snippets plugins
+"let g:OmniSharp_want_snippet=1
