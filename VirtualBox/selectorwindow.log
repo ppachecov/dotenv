@@ -1,0 +1,19 @@
+VirtualBox GUI VM Selector Window 5.2.8 r120774 linux.amd64 (Feb 28 2018 07:46:09) release log
+00:00:03.752105 Log opened 2018-03-06T12:01:56.906407000Z
+00:00:03.752107 Build Type: release
+00:00:03.752111 OS Product: Linux
+00:00:03.752113 OS Release: 4.15.6-1-ARCH
+00:00:03.752116 OS Version: #1 SMP PREEMPT Sun Feb 25 12:53:23 UTC 2018
+00:00:03.752154 DMI Product Name: 23499Z8
+00:00:03.752171 DMI Product Version: ThinkPad T430
+00:00:03.752251 Host RAM: 7681MB (7.5GB) total, 6169MB (6.0GB) available
+00:00:03.752257 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:03.752259 Process ID: 8095
+00:00:03.752260 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:03.752308 Qt version: 5.10.1
+00:00:03.970770 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:05.337503 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 0x27 x 1600x873
+00:00:05.444531 Failed to open "/dev/vboxdrv", errno=13, rc=VERR_VM_DRIVER_NOT_ACCESSIBLE
+00:00:05.447265 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:28.784542 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:54.960485 GUI: UIMediumEnumerator: Medium-enumeration finished!

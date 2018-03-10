@@ -1,0 +1,61 @@
+VirtualBox XPCOM Server 5.2.8 r120774 linux.amd64 (Feb 28 2018 07:46:09) release log
+00:00:00.046865 main     Log opened 2018-03-06T12:01:56.090434000Z
+00:00:00.046867 main     Build Type: release
+00:00:00.046870 main     OS Product: Linux
+00:00:00.046870 main     OS Release: 4.15.6-1-ARCH
+00:00:00.046871 main     OS Version: #1 SMP PREEMPT Sun Feb 25 12:53:23 UTC 2018
+00:00:00.046909 main     DMI Product Name: 23499Z8
+00:00:00.046921 main     DMI Product Version: ThinkPad T430
+00:00:00.046983 main     Host RAM: 7681MB (7.5GB) total, 6172MB (6.0GB) available
+00:00:00.046987 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.046987 main     Process ID: 8235
+00:00:00.046988 main     Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.048621 main     IPC socket path: /tmp/.vbox-pablo-ipc/ipcd
+00:00:00.184097 nspr-2   VirtualBox: object creation starts
+00:00:00.184965 nspr-2   Home directory: '/home/pablo/.config/VirtualBox'
+00:00:00.210517 nspr-2   Loading settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:00.372353 nspr-2   NetIfAdpCtlOut: VBoxNetAdpCtl: Error while retrieving link speed for wlp3s0: VBoxNetAdpCtl: ioctl failed: Operation not supported
+00:00:00.383777 nspr-2   NAT: resolv.conf: nameserver 190.160.0.13
+00:00:00.383807 nspr-2   NAT: resolv.conf: nameserver 200.30.192.14
+00:00:00.383813 nspr-2   NAT: resolv.conf: nameserver 200.83.1.5
+00:00:00.383824 nspr-2   HostDnsMonitor: old information
+00:00:00.383829 nspr-2     no server entries
+00:00:00.383833 nspr-2     no domain set
+00:00:00.383837 nspr-2     no search string entries
+00:00:00.383841 nspr-2   HostDnsMonitor: new information
+00:00:00.383844 nspr-2     server 1: 190.160.0.13
+00:00:00.383849 nspr-2     server 2: 200.30.192.14
+00:00:00.383853 nspr-2     server 3: 200.83.1.5
+00:00:00.383856 nspr-2     no domain set
+00:00:00.383860 nspr-2     no search string entries
+00:00:00.383865 nspr-2   HostDnsMonitorProxy::notify
+00:00:00.401001 nspr-2   VD: VDInit finished with VINF_SUCCESS
+00:00:00.401500 nspr-2   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={0eb668d2-495e-5a36-8890-29999b5f030c} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
+00:00:00.418996 nspr-2   Loading settings file "/home/pablo/VirtualBox VMs/window/window.vbox" with version "1.15-linux"
+00:00:00.424708 nspr-2   Loading settings file "/home/pablo/VirtualBox VMs/windows 10/windows 10.vbox" with version "1.15-linux"
+00:00:00.426033 nspr-2   VirtualBox: object created
+00:00:02.720091 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:02.798397 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:02.799445 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:02.800377 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:03.668102 nspr-2   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:04.016229 nspr-3   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:08.490533 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:08.515466 nspr-5   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:08.516753 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:08.517761 nspr-3   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:25.540191 nspr-3   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:25.877468 nspr-4   ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={4afe423b-43e0-e9d0-82e8-ceb307940dda} aComponent={MediumWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:00:25.895563 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:25.963074 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:25.964076 nspr-2   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:25.964908 nspr-4   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={afca788c-4477-787d-60b2-3fa70e56fbbc} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true  aResultDetail=0
+00:00:50.723695 nspr-4   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:46.859878 nspr-3   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:47.944899 nspr-2   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:48.127394 nspr-5   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:48.279388 nspr-4   Saving settings file "/home/pablo/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:01:53.932314 main     VirtualBox: object deletion starts
+00:01:53.953112 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={9570b9d5-f1a1-448a-10c5-e12f5285adad} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:01:58.932956 main     {00007f2ad4018950} HostPowerServiceLinux::~HostPowerServiceLinux: RTThreadWait() for 5000 ms failed with VERR_TIMEOUT
+00:01:58.933169 main     VirtualBox: object deleted
