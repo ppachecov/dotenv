@@ -519,6 +519,11 @@ bindsym Shift+F6 workspace $WS9; exec gksudo grub-customizer
 bindsym $mod+F7 workspace $WS9; exec lxappearance
 bindsym $mod+F8 workspace $WS9; exec pavucontrol
 
+# Manejo de multiples monitores
+bindsym $mod+F10    exec --no-startup-id ~/.config/Scripts/screen.sh l ;; exec --no-start
+bindsym $mod+F11    exec --no-startup-id ~/.config/Scripts/screen.sh v ;; exec --no-start
+bindsym $mod+F12    exec --no-startup-id ~/.config/Scripts/screen.sh d ;; exec --no-start
+
 #   Call tools free workspace
 #bindsym $mod+n exec nitrogen
 #bindsym $mod+p exec xfce4-screenshooter
@@ -584,3 +589,6 @@ exec_always --no-startup-id wal -c -i ~/.config/wall.png
 exec --no-startup-id "/usr/bin/xmodmap /home/<user>/.keymap"
 exec --no-startup-id "/usr/bin/urxvtd -q -f -o"
 exec --no-startup-id "/usr/bin/xrdb -merge /home/<user>/.Xresources"
+exec --no-startup-id ~/.config/Scripts/screen.sh d
+exec_always --no-startup-id wal -c -i ~/.config/wall.png
+
