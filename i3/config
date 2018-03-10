@@ -10,10 +10,10 @@
         	############# i3 TWM ###############
         	#                                  #
        	 	# Mi configuración de i3 TWM       #
-        	# Autor: Felix Molero              #
-        	# Alias: Viru69                    #
-        	# Email: elhackerliber@gmail.com   #
-        	# Lic:  GPL v2                     #
+        	# Autor: Pablo Pacheco             #
+        	# Alias: pablo                     #
+        	# Email: ppachecovr@gmail.com      #
+        	# Lic:   GPL v2                    #
         	#                                  #
         	############# i3 TWM ###############
 
@@ -35,12 +35,16 @@ font pango:Monospace 9
 floating_modifier $mod
 #------------------------------------------------------------------------------#
 
-
+# Para i3Gaps
+hide_edge_borders both 
+for_window [class="^.*"] border pixel 0
+gaps inner 15 
+gaps outer 15 
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
 #                       Ejecutar shell URxvt + Tmux
 
-bindsym $mod+Return workspace $WS1; exec urxvt #-e tmux
+bindsym $mod+Return workspace $WS1; exec termite #urxvt #-e tmux
 bindsym $mod+t exec termite
 #------------------------------------------------------------------------------#
 
@@ -101,6 +105,8 @@ bindsym $mod+space focus mode_toggle
 #       Focus the parent container
 bindsym $mod+a focus parent
 
+# Ranger 
+bindsym $mod+n  exec termite -e ranger
 
 #::::::::::::::::::::::: Customize workspace name :::::::::::::::::::::::::::::#
 
@@ -208,11 +214,11 @@ bindsym $mod+r mode "resize"
 #:::::::::::::::::::::::::::::: Style border ::::::::::::::::::::::::::::::::::#
 
 # <normal|1pixel|pixel xx|none|pixel> #
-new_window pixel 1
-new_float normal
+#new_window pixel 1
+#new_float normal
 
 #       Disable border window
-hide_edge_borders none
+#hide_edge_borders none
 
 
 #:::::::::::::::::;: Assigned window mode floating ::::::::::::::::::::::::::::#
@@ -237,7 +243,7 @@ for_window [class="Galculator"] floating enable border pixel 4
 for_window [class="soundconverter"] floating enable border pixel 1
 for_window [class="Sonata"] floating enable border pixel 4
 for_window [class="Terminator"] floating enable border pixel 1
-for_window [class="Termite"] floating enable border pixel 4
+#for_window [class="Termite"] floating enable border pixel 4
 #for_window [class="URxvt"] floating enable border pixel 4
 for_window [class="Vlc"] floating enable border pixel 1
 for_window [class="xarchiver"] floating enable border pixel 1
@@ -299,10 +305,10 @@ client.background           #2F3032
 #:::::::::::::::::::::::: Settings for gaps window ::::::::::::::::::::::::::::#
 
 # Set inner/outer gaps
-set $default_gaps_inner 8
-set $default_gaps_outer -4
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+#set $default_gaps_inner 8
+#set $default_gaps_outer -4
+#gaps inner $default_gaps_inner
+#gaps outer $default_gaps_outer
 
 smart_gaps on
 smart_borders on
@@ -410,12 +416,75 @@ bindsym Ctrl+0 exec --no-startup-id pactl set-sink-mute 0 toggle
 #bindsym XF86AudioPrev exec "mpc prev"
 #bindsym XF86AudioNext exec "mpc next"
 
+# Para MPC 
+set $music termite -e ncmpcpp
+set $pause --no-startup-id mpc toggle
+set $trupause --no-startup-id mpc pause
+set $next --no-startup-id mpc next
+set $prev --no-startup-id mpc prev
+set $lilfor --no-startup-id mpc seek +10
+set $bigfor --no-startup-id mpc seek +120
+set $lilbak --no-startup-id mpc seek -10
+set $bigbak --no-startup-id mpc seek -120
+set $beg --no-startup-id mpc seek 0%
+
+#For PULSEAUDIO/PAMIXER                                                      
+set $inc --no-startup-id pamixer --allow-boost -i 5                          
+set $biginc --no-startup-id pamixer --allow-boost -i 15                      
+set $dec --no-startup-id pamixer --allow-boost -d 5                          
+set $bigdec --no-startup-id pamixer --allow-boost -d 15                      
+set $mute --no-startup-id pamixer --allow-boost -t                           
+set $micmute --no-startup-id pamixer --allow-boost -t                        
+set $truemute --no-startup-id pamixer -m                                     
+set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh  
+set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh             
 
 #       Media player control key
-bindsym $mod+Ctrl+p exec "mpc toggle"
-bindsym $mod+Ctrl+s exec "mpc stop"
-bindsym $mod+Ctrl+Left exec "mpc prev"
-bindsym $mod+Ctrl+Right exec "mpc next"
+#bindsym $mod+Ctrl+p exec "mpc toggle"
+#bindsym $mod+Ctrl+s exec "mpc stop"
+#bindsym $mod+Ctrl+Left exec "mpc prev"
+#bindsym $mod+Ctrl+Right exec "mpc next"
+###---Media Keys---###                                                       
+                                                                             
+#For advancing forward/backward in an mpd song                               
+bindsym $mod+bracketleft    exec $lilbak                                     
+bindsym $mod+Shift+bracketleft  exec $bigbak                                 
+bindsym $mod+bracketright   exec $lilfor                                     
+bindsym $mod+Shift+bracketright exec $bigfor                                 
+                                                                              
+#Print screen takes a screenshot.                                            
+#With shift, it takes one only of the given window.                          
+bindsym Print           exec --no-startup-id scrot                           
+bindsym Shift+Print         exec --no-startup-id scrot -u                    
+                                                                              
+#For recording audio/video or stop recording. Also screenkey for visual typin
+bindsym $mod+Print      exec --no-startup-id screenkey                       
+bindsym $mod+Scroll_Lock    exec $audio                                      
+bindsym $mod+Insert     exec $screencast                                     
+bindsym $mod+Pause      exec $video                                          
+bindsym $mod+Delete     exec $stoprec                                        
+bindsym XF86Launch1     exec $stoprec                                        
+
+###---Extra XF86 Keys---###
+#These are the extra media keys that some keyboards have.
+bindsym XF86AudioMute       exec $mute
+bindsym XF86AudioLowerVolume    exec $dec
+bindsym XF86AudioRaiseVolume    exec $inc
+bindsym XF86PowerOff        exec sudo shutdown -h now
+bindsym XF86AudioNext       exec $next                                       
+bindsym XF86AudioPlay       exec $pause                                      
+bindsym XF86AudioPrev       exec $prev                                       
+bindsym XF86AudioStop       exec $pause                                      
+bindsym XF86AudioRecord     exec $audio                                      
+bindsym XF86AudioRewind     exec $lilbak                                     
+bindsym XF86AudioForward    exec $lilfor 
+bindsym XF86AudioMicMute    exec $micmute  
+bindsym XF86MonBrightnessDown   exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 
+
+# Reproductor de musica 
+bindsym $mod+m      exec $music
+
 #::::::::::::::::::::::::::::::: Launcher APP :::::::::::::::::::::::::::::::::#
 
 #       Call web browser
@@ -451,23 +520,29 @@ bindsym $mod+F7 workspace $WS9; exec lxappearance
 bindsym $mod+F8 workspace $WS9; exec pavucontrol
 
 #   Call tools free workspace
-bindsym $mod+n exec nitrogen
-bindsym $mod+p exec xfce4-screenshooter
+#bindsym $mod+n exec nitrogen
+#bindsym $mod+p exec xfce4-screenshooter
 
 
 #:::::::::::::::::::::: Autostart app and daemons :::::::::::::::::::::::::::::#
 
 #       Daemon
-exec --no-startup-id thunar --daemon
+#exec --no-startup-id thunar --daemon
 
 #       Background
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
 
 #       Pulseaudio
-exec --no-startup-id start-pulseaudio-x11
+#exec --no-startup-id start-pulseaudio-x11
 
 #       Music server MPD
 exec --no-startup-id mpd
+
+# Wifi Applet:
+exec --no-startup-id nm-applet 
+
+# Bluethoot applet
+exec --no-startup-id blueman-applet
 
 #       Composite manager
 #exec --no-startup-id compton -cCGb      
@@ -487,6 +562,9 @@ exec --no-startup-id xrdb ~/.Xresources
 
 #		Dunst
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+# Wall
+exec_always --no-startup-id wal -c -i ~/.config/wall.png 
 
 # update notify
 #exec  kalu

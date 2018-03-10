@@ -21,7 +21,7 @@ playing=⏸
 stopped=♪
 
 if [ $showname = '1' ]; then
-  mpc current  | awk -F ' - ' '{printf "【%s】", substr($2, 0, 20)}'
+  mpc current  | awk -F ' - ' '{printf "%s", substr($2, 0, 20)}'
 #   mpc current | awk -F: '{print "[" $1 "]"}'
 fi
 
