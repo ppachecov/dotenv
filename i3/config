@@ -37,7 +37,7 @@ floating_modifier $mod
 
 # Para i3Gaps
 hide_edge_borders both 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 5
 gaps inner 15 
 gaps outer 15 
 
@@ -119,7 +119,7 @@ set $WS6   6: Chat
 set $WS7   7: Doc
 set $WS8   8: Down
 set $WS9   9: Conf
-set $WS0   10: Games
+set $WS0   10: Mail
 
 #       Switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -145,6 +145,30 @@ bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS0
 
+# Gaps Workspaces
+#workspace $WS0 gaps inner 0 
+#workspace $WS1 gaps inner 0 
+#workspace $WS1 gaps outer 0 
+#workspace $WS2 gaps inner 0 
+#workspace $WS3 gaps inner 0 
+#workspace $WS4 gaps inner 0 
+#workspace $WS5 gaps inner 0 
+#workspace $WS6 gaps inner 0 
+#workspace $WS7 gaps inner 0 
+#workspace $WS8 gaps inner 0 
+#workspace $WS8 gaps inner 0 
+
+#workspace $WS0 gaps outer 0 
+#workspace $WS1 gaps outer 0 
+#workspace $WS2 gaps outer 0 
+#workspace $WS3 gaps outer 0 
+#orkspace $WS4 gaps outer 0 
+#workspace $WS5 gaps outer 0 
+#workspace $WS6 gaps outer 0 
+#workspace $WS7 gaps outer 0 
+#workspace $WS8 gaps outer 0 
+#workspace $WS9 gaps outer 0 
+#
 #::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::# 
 
 assign [class="chromium"]           $ws2
@@ -272,8 +296,9 @@ bar {
         mode                        dock
         strip_workspace_numbers     yes
         height                      25
-        font                        pango: xos4 Terminess Powerline, Awesome 9
-        separator_symbol            "::"
+        font                        pango: xos4 Terminess Powerline, Awesome 10
+        #separator_symbol            "::"
+        separator_symbol            ""
 
 #   Color panel
 colors {
@@ -310,8 +335,8 @@ client.background           #2F3032
 #gaps inner $default_gaps_inner
 #gaps outer $default_gaps_outer
 
-smart_gaps on
-smart_borders on
+#smart_gaps on
+#smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying
 # outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or
@@ -488,35 +513,35 @@ bindsym $mod+m      exec $music
 #::::::::::::::::::::::::::::::: Launcher APP :::::::::::::::::::::::::::::::::#
 
 #       Call web browser
-bindsym $mod+F1 workspace $WS2; exec firefox #palemoon
-bindsym $mod+Shift+F1 workspace $WS2; exec google-chrome-stable
+bindsym $mod+F1 workspace $WS2; exec chromium #palemoon
+#bindsym $mod+Shift+F1 workspace $WS2; exec google-chrome-stable
 #chromium
 
 #       Call file manager
-bindsym $mod+F2 workspace $WS3; exec thunar
-
+bindsym $mod+F2 workspace $WS3; exec ranger
+bindsym $mod+Shift+F2 workspace $WS3; exec nautilus 
 #       Call text edit
-bindsym $mod+F3 workspace $WS4; exec mousepad
+bindsym $mod+F3 workspace $WS4; exec code
 bindsym $mod+Shift+F3 workspace $WS4; exec termite -e tmux
 
 #       Call multimedia
-bindsym $mod+F4 workspace $WS5; exec sonata
+#bindsym $mod+F4 workspace $WS5; exec sonata
 
 #       Call chat
-bindsym $mod+F5 workspace $WS6; exec Franz
+bindsym $mod+F5 workspace $WS6; exec sky
 
 #       Call image edit
-bindsym Shift+F4 workspace $WS7; exec inkscape
-bindsym $mod+Shift+F8 workspace $WS7; exec gimp
+#bindsym Shift+F4 workspace $WS7; exec inkscape
+#bindsym $mod+Shift+F8 workspace $WS7; exec gimp
 
 #       Call tools settings
-bindsym $mod+Shift+F5 workspace $WS9; exec gksudo imagewriter
+#bindsym $mod+Shift+F5 workspace $WS9; exec gksudo imagewriter
 
-bindsym $mod+F6 workspace $WS9; exec gksudo gparted
-bindsym $mod+Shift+F6 workspace $WS9; exec gksudo lightdm-gtk-greeter-settings
-bindsym Shift+F6 workspace $WS9; exec gksudo grub-customizer
+bindsym $mod+F6 workspace $WS0; exec evolution
+#bindsym $mod+Shift+F6 workspace $WS9; exec gksudo lightdm-gtk-greeter-settings
+#bindsym Shift+F6 workspace $WS9; exec gksudo grub-customizer
 
-bindsym $mod+F7 workspace $WS9; exec lxappearance
+#bindsym $mod+F7 workspace $WS9; exec lxappearance
 bindsym $mod+F8 workspace $WS9; exec pavucontrol
 
 # Manejo de multiples monitores
@@ -530,6 +555,8 @@ bindsym $mod+F12    exec --no-startup-id ~/.config/Scripts/screen.sh d ;; exec -
 
 
 #:::::::::::::::::::::: Autostart app and daemons :::::::::::::::::::::::::::::#
+# Wall
+exec --no-startup-id wal -c -i ~/.config/wall.png 
 
 #       Daemon
 #exec --no-startup-id thunar --daemon
@@ -568,16 +595,13 @@ exec --no-startup-id xrdb ~/.Xresources
 #		Dunst
 #exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-# Wall
-exec_always --no-startup-id wal -c -i ~/.config/wall.png 
-
 # update notify
 #exec  kalu
 #==============================================================================#
 #       Update notifier Archlinux
 #exec --no-startup-id aarchup            # exec octopi-notifier
 #       Clipboard
-#exec --no-startup-id parcellite
+exec --no-startup-id parcellite
 #       Screensaver
 # exec --no-startup-id xscreensaver -nospalsh
 #       Oneko
@@ -590,5 +614,4 @@ exec --no-startup-id "/usr/bin/xmodmap /home/<user>/.keymap"
 exec --no-startup-id "/usr/bin/urxvtd -q -f -o"
 exec --no-startup-id "/usr/bin/xrdb -merge /home/<user>/.Xresources"
 exec --no-startup-id ~/.config/Scripts/screen.sh d
-exec_always --no-startup-id wal -c -i ~/.config/wall.png
 
