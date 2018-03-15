@@ -556,7 +556,7 @@ bindsym $mod+F12    exec --no-startup-id ~/.config/Scripts/screen.sh d ;; exec -
 
 #:::::::::::::::::::::: Autostart app and daemons :::::::::::::::::::::::::::::#
 # Wall
-exec --no-startup-id wal -c -i ~/.config/wall.png 
+exec_always --no-startup-id wal -c -i ~/.config/wall.png 
 
 #       Daemon
 #exec --no-startup-id thunar --daemon
