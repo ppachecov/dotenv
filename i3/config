@@ -37,7 +37,7 @@ floating_modifier $mod
 
 # Para i3Gaps
 hide_edge_borders both 
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
 gaps inner 15 
 gaps outer 15 
 
@@ -542,12 +542,16 @@ bindsym $mod+F6 workspace $WS0; exec evolution
 #bindsym Shift+F6 workspace $WS9; exec gksudo grub-customizer
 
 #bindsym $mod+F7 workspace $WS9; exec lxappearance
-bindsym $mod+F8 workspace $WS9; exec pavucontrol
+bindsym $mod+F7 workspace $WS9; exec pavucontrol
 
 # Manejo de multiples monitores
 bindsym $mod+F10    exec --no-startup-id ~/.config/Scripts/screen.sh l ;; exec --no-start
 bindsym $mod+F11    exec --no-startup-id ~/.config/Scripts/screen.sh v ;; exec --no-start
 bindsym $mod+F12    exec --no-startup-id ~/.config/Scripts/screen.sh d ;; exec --no-start
+
+# ventanas transparentes 
+bindsym $mod+F8     exec transset-df -a --dec .15
+bindsym $mod+F9     exec transset-df -a --inc .15
 
 #   Call tools free workspace
 #bindsym $mod+n exec nitrogen
@@ -556,7 +560,7 @@ bindsym $mod+F12    exec --no-startup-id ~/.config/Scripts/screen.sh d ;; exec -
 
 #:::::::::::::::::::::: Autostart app and daemons :::::::::::::::::::::::::::::#
 # Wall
-exec_always --no-startup-id wal -c -i ~/.config/wall.png 
+exec --no-startup-id feh --bg-scale ~/.config/wall.png 
 
 #       Daemon
 #exec --no-startup-id thunar --daemon
@@ -578,7 +582,9 @@ exec --no-startup-id blueman-applet
 
 #       Composite manager
 #exec --no-startup-id compton -cCGb      
-exec --no-startup-ic xcompmgr -c -t-5 -l-5 -r4.2 -o.55
+#exec --no-startup-ic xcompmgr -c -t-5 -l-5 -r4.2 -o.55
+#exec --no-startup-id comptom --xrender-sync-fence
+exec --no-startup-id compton --config ~/.config/compton/config -b
 
 #       Number unlocker
 exec --no-startup-id numlockx on
@@ -593,7 +599,7 @@ exec conky -d; sleep 1 && transset-df .5 -n Conky &
 exec --no-startup-id xrdb ~/.Xresources
 
 #		Dunst
-#exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # update notify
 #exec  kalu
@@ -606,9 +612,6 @@ exec --no-startup-id parcellite
 # exec --no-startup-id xscreensaver -nospalsh
 #       Oneko
 # exec oneko -rv -tofocus
-
-
-
 # 	Xresources, xmodmap, start urxvt daemon
 exec --no-startup-id "/usr/bin/xmodmap /home/<user>/.keymap"
 exec --no-startup-id "/usr/bin/urxvtd -q -f -o"
