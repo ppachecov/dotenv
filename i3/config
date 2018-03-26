@@ -290,30 +290,36 @@ bindsym $mod+minus scratchpad show
 
 #:::::::::::::::::::::::::::::::: i3 Panel ::::::::::::::::::::::::::::::::::::#
 
+#bar {
+#        status_command              i3blocks -c ~/.config/i3/i3blocks.conf
+#        position                    top
+#        mode                        dock
+#        strip_workspace_numbers     yes
+#        height                      25
+#        font                        pango: xos4 Terminess Powerline, Awesome 10
+#        #separator_symbol            "::"
+#        separator_symbol            ""
+#
+##   Color panel
+#colors {
+#		background #100C08
+#		statusline #E6E5CA
+#		separator  #984141
+#
+##   Indicadores panel
+##                        border  backgr   text
+#    focused_workspace   #A87451 #A87451 #E6E5CA
+#    inactive_workspace  #2F3032 #2F3032 #E6E5CA
+#    urgent_workspace    #984141 #984141 #E6E5CA
+#       }
+#}
+
 bar {
-        status_command              i3blocks -c ~/.config/i3/i3blocks.conf
-        position                    top
-        mode                        dock
-        strip_workspace_numbers     yes
-        height                      25
-        font                        pango: xos4 Terminess Powerline, Awesome 10
-        #separator_symbol            "::"
-        separator_symbol            ""
-
-#   Color panel
-colors {
-		background #100C08
-		statusline #E6E5CA
-		separator  #984141
-
-#   Indicadores panel
-#                        border  backgr   text
-    focused_workspace   #A87451 #A87451 #E6E5CA
-    inactive_workspace  #2F3032 #2F3032 #E6E5CA
-    urgent_workspace    #984141 #984141 #E6E5CA
-       }
+    font pango:Inconsolata 11
+    position top
+    tray_output primary
+    status_command /usr/share/bumblebee-status/bumblebee-status -m kernel weather cpu sensors battery date pasink pacman xrandr -p time.format="%H:%M" date.format="%a, %b %d %Y" weather.apikey="76eec882b5484d82e6ca5265314f93b7" weather.location="Santiago,cl" -t gruvbox-powerline 
 }
-
 
 #::::::::::::::::::::::::::::: Frame window :::::::::::::::::::::::::::::::::::#
 
