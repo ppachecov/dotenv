@@ -318,7 +318,7 @@ bar {
     font pango:Inconsolata 11
     position top
     tray_output primary
-    status_command /usr/share/bumblebee-status/bumblebee-status -m kernel weather cpu sensors battery date pasink pacman xrandr -p time.format="%H:%M" date.format="%a, %b %d %Y" weather.apikey="76eec882b5484d82e6ca5265314f93b7" weather.location="Santiago,cl" -t gruvbox-powerline 
+    status_command /usr/share/bumblebee-status/bumblebee-status -m kernel weather cpu sensors battery date pasink pacman xrandr -p time.format="%H:%M" date.format="%a, %b %d %Y" weather.apikey="76eec882b5484d82e6ca5265314f93b7" weather.location="Santiago,cl" -t solarized-powerline 
 }
 
 #::::::::::::::::::::::::::::: Frame window :::::::::::::::::::::::::::::::::::#
