@@ -44,7 +44,7 @@ gaps outer 15
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
 #                       Ejecutar shell URxvt + Tmux
 
-bindsym $mod+Return workspace $WS1; exec termite #urxvt #-e tmux
+bindsym $mod+Return exec termite #urxvt #-e tmux
 bindsym $mod+t exec termite
 #------------------------------------------------------------------------------#
 
